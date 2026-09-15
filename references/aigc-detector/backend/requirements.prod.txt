@@ -1,0 +1,10 @@
+# 生产环境依赖 (去除开发依赖)
+fastapi==0.124.2
+uvicorn[standard]==0.38.0
+pydantic==2.12.5
+dashscope==1.25.3
+httpx==0.28.1
+python-dotenv==1.2.1
+
+# 可选：性能优化
+# gunicorn==21.2.0  # 用于生产环境的WSGI服务器

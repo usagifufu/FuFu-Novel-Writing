@@ -1,0 +1,4 @@
+interface:
+  display_name: "FuFu小说助手"
+  short_description: "长篇创作全流程：创作罗盘、四级大纲、伏笔、追读力、文风学习（含素材下载）与去AI味"
+  default_prompt: "使用 $fufu-novel-assistant 帮我规划并写作一部长篇小说。"
