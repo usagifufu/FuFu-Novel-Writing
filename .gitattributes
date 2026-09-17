@@ -1,0 +1,9 @@
+# 统一以 LF 存入仓库，避免 Windows 下 autocrlf 造成的字节差异
+* text=auto eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.png binary
+*.jpg binary
+*.zip binary

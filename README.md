@@ -105,6 +105,8 @@ python scripts/check_prose.py 章节.md                  # 硬禁令检查
 
 `aigc_detect.py` 可选接入 DashScope 做来源判别，配置 `DASHSCOPE_API_KEY` 后加 `--qwen` 即可；未配置时自动降级为本地规则引擎。
 
+规则与提示词的汇总入口是 [`references/anti-ai-prompts.md`](references/anti-ai-prompts.md)（反 AI 提示词大全·融合版），单文档覆盖口径裁决与决策路由、活人感规范、禁用词表、最毒句式、八种 AI 模式、行级与全文级指纹、段尾环境描写专章、七 Gate 门禁、三遍法、文体骨架化、Sepia 三遍协议与质量清单，并附 6 个可直接粘贴的提示词模板（章节写作 / 润色 / 终检 / 检测不过重写 / 常驻约束 / 单段急救）。
+
 ## 第三方项目与许可
 
 本包内含以下开源项目的完整拷贝，用于支撑去 AI 味与文风学习能力。各项目的 LICENSE 保留在对应目录中。
