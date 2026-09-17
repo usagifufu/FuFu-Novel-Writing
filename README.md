@@ -35,7 +35,12 @@ FuFu-Novel-Writing/
 │   ├── aigc-detector/        # MIT，AIGC 检测器完整项目
 │   ├── human-writing/        # MIT，活人感写作方法论
 │   └── sepia/                # MIT，叙事架构去 AI 化（三遍协议）
-└── scripts/                  # 11 个工具脚本
+├── scripts/                  # 11 个工具脚本
+└── 反AI提示词包/             # 去 AI 味提示词独立分发包（可单独取用）
+    ├── 反AI提示词大全-融合版.md
+    ├── 分册/                 # fufu 体系版、story-setup 体系版存档
+    ├── 检测脚本/             # aigc_detect.py、check_prose.py
+    └── README.md
 ```
 
 ## 内置脚本
@@ -106,6 +111,21 @@ python scripts/check_prose.py 章节.md                  # 硬禁令检查
 `aigc_detect.py` 可选接入 DashScope 做来源判别，配置 `DASHSCOPE_API_KEY` 后加 `--qwen` 即可；未配置时自动降级为本地规则引擎。
 
 规则与提示词的汇总入口是 [`references/anti-ai-prompts.md`](references/anti-ai-prompts.md)（反 AI 提示词大全·融合版），单文档覆盖口径裁决与决策路由、活人感规范、禁用词表、最毒句式、八种 AI 模式、行级与全文级指纹、段尾环境描写专章、七 Gate 门禁、三遍法、文体骨架化、Sepia 三遍协议与质量清单，并附 6 个可直接粘贴的提示词模板（章节写作 / 润色 / 终检 / 检测不过重写 / 常驻约束 / 单段急救）。
+
+### 独立分发包
+
+只想拿提示词、不需要整套技能的话，直接用 [`反AI提示词包/`](反AI提示词包/)：
+
+| 文件 | 用途 |
+|---|---|
+| `反AI提示词大全-融合版.md` | 同 `references/anti-ai-prompts.md`（两者逐字节一致），单文件自包含 |
+| `分册/fufu体系版-指纹与骨架化.md` | fufu 体系上游版存档（指纹清单 + 文体骨架化） |
+| `分册/story-setup体系版-禁令与范例.md` | story-setup 体系上游版存档（禁令 + 改写范例库） |
+| `检测脚本/aigc_detect.py` | AI 指纹扫描，可独立运行 |
+| `检测脚本/check_prose.py` | 硬禁令扫描，可独立运行 |
+| `README.md` | 包说明与上手路径 |
+
+两个检测脚本仅依赖 Python 标准库，复制出去即可单独使用。
 
 ## 第三方项目与许可
 
