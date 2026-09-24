@@ -159,6 +159,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 - [chapter-spec.md](references/chapter-spec.md)：章节规格（spec）YAML 模板、连贯性检查、批量自动推进流程与报告模板。
 - [review-rubrics.md](references/review-rubrics.md)：五角色加权评审、P0/P1/P2 红线分级、四视角对抗式审查、审查报告格式。
 - [style-learning.md](references/style-learning.md)：文风学习流程——样本收集、统计分析、六维提炼、三层风格链、多源合成、**两层风格文档（风格卡跑参数 / 文风总纲跑规则）**、风格卡生成与校准、版权边界。
+- [style-jiangnan.md](references/style-jiangnan.md)：**江南式文风档案（独立模块，默认不生效）**——350 万字语料量化锚点、五条写作基因、五种句法骨架、三层语域落差、五种叙述者姿态、七步情绪引擎（伤口/补偿幻想/现实纠偏/强度 0-4 档）、描写五步语法、信息释放与留白、章节收尾纪律、**失效清单（伪特征）**、**适用与不适用冲突表**、调用方式与三条硬边界。项目要用须显式声明采用模块与强度。
 - [genre-research.md](references/genre-research.md)：题材模板、复合题材规则、题材雷达、拆书分析流程。
 - [novel-download.md](references/novel-download.md)：番茄小说下载器（Tomato-Novel-Downloader）接入说明——获取方式、Web UI/TUI/CLI 用法、与文风学习衔接、版权边界。
 - [llmlint.md](references/llmlint.md)：AI 味反模式清单（分类、示例、修法）与审校边界。
