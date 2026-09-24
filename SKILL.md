@@ -79,7 +79,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 
 ### 4. 项目搭建
 
-用 `scripts/init_novel.py <项目目录> --title <书名>` 初始化工作区，目录规范见 [project-structure.md](references/project-structure.md)。新项目按五阶段推进：
+用 `scripts/init_novel.py <项目目录> --title <书名>` 初始化工作区，目录规范见 [project-structure.md](references/project-structure.md)（含**按读写权限分层**：哪些区走确认门、哪些区只追加、哪些区只增不改）。新项目按五阶段推进：
 
 1. 项目定位：一句话故事核心（主角 + 目标 + 障碍 + 代价）、题材与复合题材、读者预期、篇幅。
 2. 世界书框架：世界观规则、势力、地点、力量体系等稳定设定写入 `lorebook/`。
@@ -152,7 +152,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 
 - [教程.md](references/教程.md)：技能完整操作流程与使用教程（新手从这里读起）。
 - [写作约束.md](references/写作约束.md)：全书默认写作硬约束——禁止句式与禁喻词清单、客观化中立化叙述要求、豁免规则。
-- [project-structure.md](references/project-structure.md)：项目目录规范、单一真源与运行态、提交链与经验库、稳定/动态设定判据、旧稿导入/整书导出。
+- [project-structure.md](references/project-structure.md)：项目目录规范、**按读写权限分层**（src / 运行态 / 产出物 / 例外层）、每章产物流水线、命名硬约束、运行态两套写法、单一真源与运行态、提交链与经验库、稳定/动态设定判据、项目级布局声明、旧稿导入/整书导出。
 - [world-engine.md](references/world-engine.md)：世界状态引擎原理、主体/切面/操作/历法、等级体系刻度、检索方法。
 - [plot-workbench.md](references/plot-workbench.md)：四级大纲、两棵树、章节关系图谱、承诺账本、伏笔 DAG、追读力系统、决策记录、信息控制、MICE。
 - [writer-brief.md](references/writer-brief.md)：章节写作指令模板、canonical packet 组装、风格卡、六维审查清单、Anti-AI 终检、提交与备份。

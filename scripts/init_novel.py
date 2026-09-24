@@ -202,8 +202,10 @@ def main() -> int:
         print(f"[错误] 目录已存在且非空，拒绝覆盖: {root}")
         return 1
 
-    # 空目录：审查报告与备份
-    for rel in ("审查报告", "备份"):
+    # 空目录：审查报告、备份、章节规格与任务书
+    # specs 与 briefs 目录同样预先建好：chapter-spec.md 要求把规格写到
+    # plot/specs/第XXX章.yaml，auto_write.py 也按这个路径拼文件名读规格。
+    for rel in ("审查报告", "备份", "plot/specs", "plot/briefs"):
         os.makedirs(os.path.join(root, rel), exist_ok=True)
 
     for rel in TEMPLATES:
@@ -215,7 +217,7 @@ def main() -> int:
         with open(path, "w", encoding="utf-8") as fh:
             fh.write(content)
         print(f"[OK] {rel}")
-    for rel in ("审查报告", "备份"):
+    for rel in ("审查报告", "备份", "plot/specs", "plot/briefs"):
         print(f"[OK] {rel}/")
 
     print(f"\n项目已初始化: {root}")

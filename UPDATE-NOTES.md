@@ -74,6 +74,19 @@
 2. **行尾口径统一**：包内 `check_prose.py` 由此前遗漏的 CRLF 归一为 LF（22237 → 21598 字节），与技能本体 `scripts/check_prose.py` 逐字节一致；全包 6 文件均为 LF，无 CRLF 残留。
 3. **README.md**：目录结构补 `反AI提示词包/` 子树；去 AI 味检测栈章节新增「独立分发包」小节与文件用途表。
 
+## 第八次更新（文件布局规范入档）
+
+依据实战项目（东京恋爱流长篇）跑完第 1 章全流程后暴露的规范缺口：技能原有 `project-structure.md` 只讲了目录布局与单一真源，但**没讲每个区能不能改**，导致实际执行时反复要现场判断"这个文件改了要不要问用户"。
+
+1. **`references/project-structure.md` 新增「按读写权限分层」**：在内容分区（lorebook / manuscript / world-state / plot）之上加一条正交主轴——**每个区能不能改**。四类：src·确认版（可改走确认门）/ 运行态（只追加）/ 产出物（只增不改）/ 例外层（可增可改）。附三条最易踩的行为后果。
+2. **目录树补入 `plot/specs/` 与 `plot/briefs/`**：此前 `chapter-spec.md` 要求把规格写到 `plot/specs/第XXX章.yaml`，但项目结构文档的目录树里没有这两个子目录，`briefs/` 则完全未提。现补齐，并加 `lorebook/文风模仿要求.md`（可选）与根 `文件布局.md`（可选）。
+3. **新增「每章产物流水线」**：写一章 = 4 个新文件（spec / brief / 正文 / 审查）+ 若干处回补（timeline / subjects / commits / promises / decisions / 经验库），并明确**规格与任务书是两个东西、不要合并**。
+4. **新增「命名规则」**：`specs/` 用 `第NNN章.yaml`、`briefs/` 用 `第NNN章-brief.md`、`manuscript/` 用 `NNN-卷名/NNN-章名.md`。**写入硬约束：`specs/` 命名不可改**（`auto_write.py` 按 `f"第{chapter:03d}章.yaml"` 拼路径）；章名取内容关键词不用「第N章」；备份与正文同名。
+5. **新增「运行态的两套写法」**：明确 `openwrite-core.md` 说"运行态只追加"与 `subjects.md` 装当前状态之间的**规范内部差异**——`timeline.md`/`commits.md` 只追加，`subjects.md` 可刷新、变更记进 timeline，`calendar.md` 基本不变。
+6. **新增「可选：项目级布局声明」与「尚未采用的规范项」**：项目根 `文件布局.md` 只记**偏差**不抄技能；世界关系图谱 `relations.md`（角色 10+ 时启用）与 TOML front matter（跨文档引用变多时启用）标为可选。
+7. **`scripts/init_novel.py` 修缺**：初始化时一并建出 `plot/specs/` 与 `plot/briefs/` 空目录（此前只建 `审查报告/` 与 `备份/`，与 `chapter-spec.md` 的要求脱节）。
+8. **`SKILL.md`**：资源索引 `project-structure.md` 条目描述补入分层、流水线、命名硬约束；项目搭建步骤引用处标注分层要点。
+
 ## 安装
 
 运行 `install_skill.ps1`（自动备份现有技能到 `work/fufu-novel-assistant-skill-backup/<时间戳>/` 后覆盖），或由 Codex 在获得写权限后直接应用更新包到技能目录。
