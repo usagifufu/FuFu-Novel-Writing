@@ -75,7 +75,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 
 ### 3. 文风学习（可选）
 
-用户提供样本文件（自己以前的稿子、喜欢的作者文本、平台范文）时执行：跑 `scripts/style_analyze.py` 做量化统计，通读样本按词汇/句式/描写/对话/节奏/叙述六维提炼，生成 `lorebook/风格卡.md`，试写校准后供每章 Brief 引用。没有现成样本时，可用番茄小说下载器获取平台范文（见 [novel-download.md](references/novel-download.md)），下载后用 `scripts/prepare_samples.py` 整理成干净语料，再走同一分析流程。多份样本时走三层风格链（source pack → manifest → composed）合成单一风格说明书，见 [style-learning.md](references/style-learning.md)。学特征不抄句子、输出不含样本原文片段。全书另有**默认生效的写作硬约束**（禁止句式、禁喻词、客观化叙述等），每章 Brief 的禁写事项自动叠加，见 [写作约束.md](references/写作约束.md)。
+用户提供样本文件（自己以前的稿子、喜欢的作者文本、平台范文）时执行：跑 `scripts/style_analyze.py` 做量化统计，通读样本按词汇/句式/描写/对话/节奏/叙述六维提炼，生成 `lorebook/风格卡.md`，试写校准后供每章 Brief 引用。没有现成样本时，可用番茄小说下载器获取平台范文（见 [novel-download.md](references/novel-download.md)），下载后用 `scripts/prepare_samples.py` 整理成干净语料，再走同一分析流程。多份样本时走三层风格链（source pack → manifest → composed）合成单一风格说明书；样本 3 份以上时另编译**文风总纲** `lorebook/文风模仿要求.md`，把量化不了的那层（模仿谁/不模仿谁、硬规则、正反范例）单独建档，见 [style-learning.md](references/style-learning.md)。**两份文档分工写死：风格卡跑参数（句长/段均/对话率），文风总纲跑规则（叙述距离/信息控制/钩子写法），不互相抄。** 学特征不抄句子、输出不含样本原文片段。全书另有**默认生效的写作硬约束**（禁止句式、禁喻词、客观化叙述等），每章 Brief 的禁写事项自动叠加，见 [写作约束.md](references/写作约束.md)。
 
 ### 4. 项目搭建
 
@@ -158,7 +158,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 - [writer-brief.md](references/writer-brief.md)：章节写作指令模板、canonical packet 组装、风格卡、六维审查清单、Anti-AI 终检、提交与备份。
 - [chapter-spec.md](references/chapter-spec.md)：章节规格（spec）YAML 模板、连贯性检查、批量自动推进流程与报告模板。
 - [review-rubrics.md](references/review-rubrics.md)：五角色加权评审、P0/P1/P2 红线分级、四视角对抗式审查、审查报告格式。
-- [style-learning.md](references/style-learning.md)：文风学习流程——样本收集、统计分析、六维提炼、三层风格链、多源合成、风格卡生成与校准、版权边界。
+- [style-learning.md](references/style-learning.md)：文风学习流程——样本收集、统计分析、六维提炼、三层风格链、多源合成、**两层风格文档（风格卡跑参数 / 文风总纲跑规则）**、风格卡生成与校准、版权边界。
 - [genre-research.md](references/genre-research.md)：题材模板、复合题材规则、题材雷达、拆书分析流程。
 - [novel-download.md](references/novel-download.md)：番茄小说下载器（Tomato-Novel-Downloader）接入说明——获取方式、Web UI/TUI/CLI 用法、与文风学习衔接、版权边界。
 - [llmlint.md](references/llmlint.md)：AI 味反模式清单（分类、示例、修法）与审校边界。
