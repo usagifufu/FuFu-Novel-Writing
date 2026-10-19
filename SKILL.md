@@ -163,7 +163,7 @@ description: FuFu（芙芙）小说助手 —— 基于 NeuroBook、Webnovel Wri
 - [genre-research.md](references/genre-research.md)：题材模板、复合题材规则、题材雷达、拆书分析流程。
 - [novel-download.md](references/novel-download.md)：番茄小说下载器（Tomato-Novel-Downloader）接入说明——获取方式、Web UI/TUI/CLI 用法、与文风学习衔接、版权边界。
 - [llmlint.md](references/llmlint.md)：AI 味反模式清单（分类、示例、修法）与审校边界。
-- [anti-ai-prompts.md](references/anti-ai-prompts.md)：**反 AI 提示词大全（融合版）**——单文档汇总全部去 AI 味资产：口径冲突裁决与决策路由 + 活人感规范 + 用户硬约束 + 禁用词表 + 最毒句式 + 八种 AI 模式 + 行级/全文级指纹 + **段尾环境描写专章** + 叠加式描写 + 七 Gate 门禁 + 三遍法 + 例子库 + 文体骨架化 + Sepia 三遍协议 + 质量清单；含 **6 个可直接粘贴的提示词模板**（章节写作/润色/终检/检测不过重写/常驻约束/单段急救）。整合 fufu 体系版与 story-setup 体系版两份上游文档。
+- [anti-ai-prompts.md](references/anti-ai-prompts.md)：**反 AI 提示词大全（融合版）**——单文档汇总全部去 AI 味资产：口径冲突裁决与决策路由 + 活人感规范 + 用户硬约束 + **2.3.1 用词替换表（全局最高优先级，深度限知情绪腔：直接替换 5 词 / 整词删除 11 组 / 禁平衡句式）** + 禁用词表 + 最毒句式 + 八种 AI 模式 + 行级/全文级指纹 + **段尾环境描写专章** + 叠加式描写 + 七 Gate 门禁 + 三遍法 + 例子库 + 文体骨架化 + Sepia 三遍协议 + 质量清单；含 **6 个可直接粘贴的提示词模板**（章节写作/润色/终检/检测不过重写/常驻约束/单段急救）。整合 fufu 体系版与 story-setup 体系版两份上游文档。
 - [aigc-detector-guide.md](references/aigc-detector-guide.md)：AIGC 检测器接入指南——本地规则引擎用法（免 API）、Qwen 深度检测配置（DashScope）、Web UI 部署、检测维度清单、与 novel_lint 的分工。
 - `references/aigc-detector/`：aigc-detector 开源项目本体（FastAPI 后端 + React 前端，可 Docker 部署独立使用）。
 - [human-writing-guide.md](references/human-writing-guide.md)：活人感写作接入指南（融合 human-writing v1.1.0）——与 aigc_detect.py/novel_lint.py 的分工、硬禁令清单、七遍改稿法、蒸馏版用法、在流水线中的位置。
