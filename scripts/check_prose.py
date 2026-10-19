@@ -116,10 +116,166 @@ LYRIC_WORDS = (
     "微光",
     "褶皱",
     "丰盈",
-    "滚烫",
     "轻盈",
     "赤裸",
     "剥开",
+)
+
+# 2026-10-19 补：用户设定的「深度限知情绪腔」用词替换表（全局最高优先级）
+#
+# 这批词共同指向一件事：不许从身体内部写情绪。
+# 「脊背一凉 / 指尖发白 / 心口一滚烫 / 瞬间麻木 / 面无表情」是同一套零件的不同组合。
+# 禁掉它们之后，情绪只能从外面看得见的地方写：手上在做什么、东西放在哪、话说没说完。
+#
+# 分级原则：文档全禁，脚本分级防误报。
+# 下面的 EMOTION_BANS 只收「出现即错」的词；本义常见的（石头、湖面、突然、仪式、
+# 雕塑、精密、热、烫）放 EMOTION_SOFT，提示人工判断，不当场判错。
+EMOTION_BANS = (
+    # 一、替换型（有固定替代词，见 anti-ai-prompts.md 2.3.1）
+    "脊背",
+    "深入骨髓",
+    "乐了",
+    "降维打击",
+    "亚空间",
+    # 二、身体部位特写：把镜头推到器官上
+    "锁骨",
+    "尾椎骨",
+    "喉结",
+    "骨节分明",
+    "指尖",
+    "指节",
+    "睫毛",
+    "血色",
+    "血压",
+    "上涌",
+    "血色尽褪",
+    "滴出血来",
+    "攥紧",
+    "攥住",
+    "牙缝",
+    "紧咬",
+    "牙酸",
+    # 三、情绪直给：替读者下结论
+    "无力感",
+    "疲惫感",
+    "面无表情",
+    "羞愤",
+    "倦意",
+    "脱力",
+    "虚脱",
+    "自我厌弃",
+    "自暴自弃",
+    "破罐子破摔",
+    "灭顶",
+    "狡黠",
+    # 四、程度放大：靠副词抬音量
+    "猛地",
+    "极度",
+    "过度",
+    "死死地",
+    "不易察觉",
+    # 五、感官夸张
+    "滚烫",
+    "发烫",
+    "滚热",
+    "热辣辣",
+    "火辣辣",
+    "一道惊雷",
+    "轰地一下",
+    "直冲",
+    "直窜",
+    # 六、仪式与信仰：给日常场面套神圣感
+    "狂热",
+    "信徒",
+    "献祭",
+    "祭品",
+    # 七、机械与医学：给身体套器械感
+    "机械式的",
+    "手术刀",
+    "教具",
+    # 八、姿态与口癖
+    "打圈",
+    "打转",
+    "打着圈",
+    "打着转",
+    "长长地呼出一口气",
+    "抽干全身力气",
+    "如释重负",
+    "如蒙大赦",
+    "挤了挤眼睛",
+    "眨了眨眼",
+    # 九、文艺腔
+    "前所未来",
+    "前所未有",
+    "难以言喻",
+)
+
+# 本义常见，需结合语境判断：字面用法保留，拿来写情绪时删。
+EMOTION_SOFT = (
+    "修长",
+    "握拳",
+    "握紧",
+    "咬着",
+    "通红",
+    "麻木",
+    "绝望",
+    "震惊",
+    "惊慌",
+    "残酷",
+    "残忍",
+    "冷酷",
+    "荒唐",
+    "荒诞",
+    "荒谬",
+    "紧绷",
+    "绷紧",
+    "激动",
+    "紧张",
+    "生气",
+    "愤怒",
+    "吼",
+    "无力",
+    "疲惫",
+    "虚弱",
+    "强烈",
+    "剧烈",
+    "深深",
+    "瞬间",
+    "突然",
+    "爆发",
+    "爆炸",
+    "炸开",
+    "燃烧",
+    "石子",
+    "石头",
+    "湖面",
+    "涟漪",
+    "仪式",
+    "宗教",
+    "信仰",
+    "机械",
+    "冰冷",
+    "冰凉",
+    "精密",
+    "仪器",
+    "展品",
+    "雕塑",
+    "解剖",
+    "冷静",
+    "审视",
+    "审判",
+    "潮水",
+    "淹没",
+    "席卷",
+    "颤抖",
+    "颤音",
+)
+
+# 禁用比喻骨架：不是禁「比喻」，是禁这两个已经用烂的句式。
+BAN_SIMILE_PATTERNS = (
+    re.compile(r"像(?:是)?(?:有)?一(?:根|枚)[^。！？\n]{0,10}针"),
+    re.compile(r"像(?:是)?(?:有)?一(?:把|柄)[^。！？\n]{0,10}刀"),
+    re.compile(r"似(?:乎)?(?:是)?(?:有)?一(?:根|枚)[^。！？\n]{0,10}针"),
 )
 
 ROAD_SIGNS = (
@@ -167,6 +323,8 @@ PIVOT_PATTERNS = (
     re.compile(r"[。！？!?]\s*而是"),
     re.compile(r"表面(?:上)?[^。！？\n]{0,90}(?:其实|实际|实则)"),
     re.compile(r"看似[^。！？\n]{0,90}(?:其实|实际|实则)"),
+    # 2026-10-19 补：平衡句式「不仅……更是」，与「不是……而是」同属一类
+    re.compile(r"不仅[^。！？\n]{0,60}(?:更是|更加|更令人|更值得)"),
 )
 
 SEMANTIC_PIVOT_PATTERNS = (
@@ -526,6 +684,51 @@ def main() -> int:
         warnings.append(
             f"有 {len(context_jargon_matches)} 处词语需要结合语境判断。"
             f"第 {lines} 行出现 {samples}。本义准确时保留，用来抬价时改写。"
+        )
+
+    emotion_matches = non_overlapping_terms(prose, EMOTION_BANS)
+    for position, phrase in emotion_matches[:15]:
+        failures.append(
+            f"情绪腔用词，第 {line_number(text, position)} 行，{phrase}。"
+            "换成外面看得见的动作或物件。"
+        )
+    if len(emotion_matches) > 15:
+        failures.append(
+            f"情绪腔用词另有 {len(emotion_matches) - 15} 处未逐条列出。"
+        )
+
+    for match in all_matches(prose, BAN_SIMILE_PATTERNS)[:8]:
+        failures.append(
+            f"禁用比喻句式，第 {line_number(text, match.start())} 行，"
+            f"“{excerpt(match.group(), 44)}”。直接写物件的状态，不套针和刀。"
+        )
+
+    soft_emotion_matches = non_overlapping_terms(prose, EMOTION_SOFT)
+    hard_emotion_spans = [
+        (position, position + len(phrase)) for position, phrase in emotion_matches
+    ]
+    soft_emotion_matches = [
+        (position, phrase)
+        for position, phrase in soft_emotion_matches
+        if not any(
+            position < end and position + len(phrase) > start
+            for start, end in hard_emotion_spans
+        )
+    ]
+    if soft_emotion_matches:
+        samples = "、".join(
+            dict.fromkeys(phrase for _, phrase in soft_emotion_matches)
+        )
+        lines = "、".join(
+            dict.fromkeys(
+                str(line_number(text, position))
+                for position, _ in soft_emotion_matches[:8]
+            )
+        )
+        warnings.append(
+            f"有 {len(soft_emotion_matches)} 处词在情绪腔替换表上，需结合语境判断。"
+            f"第 {lines} 行出现 {samples}。"
+            "字面用法（石头路、开学仪式、水太烫）保留；拿来写情绪时删。"
         )
 
     road_signs = all_matches(prose, ROAD_SIGN_PATTERNS)
