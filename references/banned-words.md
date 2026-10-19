@@ -1,12 +1,17 @@
-# AI味禁用词与句式表
+# AI味禁用词与句式表（镜像快照）
+
+> **本文件不是本技能的真源。**
+> 完整且唯一的禁用词表在 [`anti-ai-prompts.md`](anti-ai-prompts.md) 的 **2.3.1 用词替换表**。本文件是 story-setup 体系的镜像快照，保留是为了与外部 6 个 skill 副本对齐，**遇到冲突一律以 `anti-ai-prompts.md` 为准**。
+> 曾经冲突过的一处：标点政策（省略号）。本文件旧版把省略号停顿列为禁止项，与 `anti-ai-prompts.md` 第〇部分的裁决相反，**旧说法已作废**，下方对应段落已改正。
 
 <!--
-version: 2.0.0
+version: 2.0.1
 sync-source: skills/story-setup/references/agent-references/banned-words.md
 本文件在 6 个 skill 副本间需保持一致：
   story-deslop / story-long-write / story-short-write /
   story-short-analyze / story-review / story-setup
 修改后请同步所有副本（CI 守卫见 scripts/check-shared-files.sh）。
+注意：本文件属镜像层，本技能内的规则修订不改这里，改 anti-ai-prompts.md。
 -->
 
 ## 最毒禁用句式（出现即修，最高优先级）
@@ -26,7 +31,7 @@ sync-source: skills/story-setup/references/agent-references/banned-words.md
 
 > 凡命中 ★★★★★ 一处即视为重度AI味的强证据；★★★★ 命中 ≥2 处即触发中度复扫。
 
-**标点**：正文（含叙述和对话）禁用破折号 `——`/`—`、双连字符 `--` 和省略号停顿，改用句号、逗号、短句或动作断句；不设置对话破折号例外。盐言「」引号不在此列。
+**标点**：正文（含叙述和对话）禁用破折号 `——`/`—`、双连字符 `--` 与括号，不设置对话破折号例外。省略号允许使用，裁决见 [`anti-ai-prompts.md`](anti-ai-prompts.md) 第〇部分，但不拿它硬造停顿。盐言「」引号不在此列。
 
 ---
 
